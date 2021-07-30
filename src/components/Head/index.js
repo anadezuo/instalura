@@ -23,6 +23,12 @@ export function HeadTab() {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#ffffff" />
+
+      <meta property="og:url"                content="http://vercel.com/anadezuo/instalura" />
+      <meta property="og:type"               content="article" />
+      <meta property="og:title"              content="Instalura" />
+      <meta property="og:description"        content="Quem saber como está essa rede social? Vem conferir!" />
+      <meta property="og:image"              content="../../assets/image/aluraIconaluraIcon.png" />
     </Head>
   );
 }
