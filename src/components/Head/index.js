@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 export function HeadTab() {
   return (
@@ -24,11 +24,18 @@ export function HeadTab() {
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#ffffff" />
 
-      <meta property="og:url"                content="http://vercel.com/anadezuo/instalura" />
-      <meta property="og:type"               content="article" />
-      <meta property="og:title"              content="Instalura" />
-      <meta property="og:description"        content="Quem saber como está essa rede social? Vem conferir!" />
-      <meta property="og:image"              content="https://github.com/anadezuo/instalura/blob/main/src/assets/image/aluraIconaluraIcon.png" />
+      <meta property="og:site_name" content="Bootcamp Front End Avançado" />
+      <meta property="og:url" content="http://vercel.com/anadezuo/instalura" />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content="Instalura" />
+      <meta
+        property="og:description"
+        content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"
+      />
+      <meta
+        property="og:image"
+        content="https://www.alura.com.br/assets/img/bootcamp/front-end-jamstack/og-image.1616501197.png"
+      />
     </Head>
-  );
+  )
 }
