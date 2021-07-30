@@ -28,7 +28,7 @@ export function HeadTab() {
       <meta property="og:type"               content="article" />
       <meta property="og:title"              content="Instalura" />
       <meta property="og:description"        content="Quem saber como está essa rede social? Vem conferir!" />
-      <meta property="og:image"              content="../../assets/image/aluraIconaluraIcon.png" />
+      <meta property="og:image"              content="https://github.com/anadezuo/instalura/blob/main/src/assets/image/aluraIconaluraIcon.png" />
     </Head>
   );
 }
