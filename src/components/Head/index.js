@@ -24,9 +24,11 @@ export function HeadTab() {
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#ffffff" />
 
+
+      {/* Twitter Card*/}
       <meta
         name="twitter:image:src"
-        content="https://www.alura.com.br/assets/img/bootcamp/front-end-jamstack/og-image.1616501197.png"
+        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
       />
       <meta name="twitter:site" content="@anadezuo" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -40,10 +42,10 @@ export function HeadTab() {
       />
 
 
-
+      {/* Facebook tag open graph*/}
       <meta
         property="og:image"
-        content="https://www.alura.com.br/assets/img/bootcamp/front-end-jamstack/og-image.1616501197.png"
+        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
       />
       <meta
         property="og:image:alt"
