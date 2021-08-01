@@ -1,6 +1,7 @@
-import React from 'react'
-import { Logo } from '../../theme/Logo'
-import { MenuWrapper } from './styles/MenuWrapper'
+import React from 'react';
+import { Logo } from '../../theme/Logo';
+import { MenuWrapper } from './styles/MenuWrapper';
+import { Button } from '../Button';
 
 export default function Menu() {
   const links = [
@@ -16,7 +17,7 @@ export default function Menu() {
       text: 'Sobre',
       url: '/sobre',
     },
-  ]
+  ];
 
   return (
     <MenuWrapper>
@@ -29,13 +30,13 @@ export default function Menu() {
             <li key={link.text}>
               <a href={link.url}> {link.text}</a>
             </li>
-          )
+          );
         })}
       </MenuWrapper.Center>
       <MenuWrapper.RightSide>
-        <button>Entrar</button>
-        <button>Cadastrar</button>
+        <Button ghost variant='secondary.main'>Entrar</Button>
+        <Button variant='primary.main'>Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
-  )
+  );
 }

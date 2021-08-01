@@ -1,21 +1,38 @@
+import React, { useState } from 'react';
 import { GlobalStyle } from '../src/components/UI/GlobalStyle';
 import { HeadTab } from '../src/components/Head';
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from 'styled-components';
+import { ThemeLight, ThemeDark } from '../src/components/theme';
+import SwitcherTheme from '../src/components/SwitcherTheme';
 
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+export const ButtonTheme = styled.button`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+`;
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps}) {
+  const [themeUser, setThemeUser] = useState(true);
+
+  const changeTheme = () => {
+    setThemeUser((themeUser) => !themeUser);
+  };
+
   return (
     <>
       <HeadTab />
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeUser ? ThemeLight : ThemeDark}>
+        <ButtonTheme onClick={changeTheme}>
+          <SwitcherTheme theme={themeUser} />
+        </ButtonTheme>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
-  )
+  );
 }
