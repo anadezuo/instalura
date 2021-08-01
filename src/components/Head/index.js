@@ -8,6 +8,7 @@ export function HeadTab() {
       <title>Instalura</title>
       <meta name="title" content="Instalura"/>
       <meta name="description" content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"/>
+      <meta name="theme-color" content="#ffffff" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website"/>
@@ -23,7 +24,11 @@ export function HeadTab() {
       <meta property="twitter:description" content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"/>
       <meta property="twitter:image" content="https://instalura-anadezuo.vercel.app/instalura-capa.png"/>
 
+      <link rel="icon" type="image/png" sizes="32x32" href="https://instalura-anadezuo.vercel.app/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="https://instalura-anadezuo.vercel.app/favicon-16x16.png"/>
 
+      <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"></link>
     </Head>
   )
 }
