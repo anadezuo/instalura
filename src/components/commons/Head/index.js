@@ -3,9 +3,6 @@ import Head from 'next/head'
 export function HeadTab() {
   return (
     <Head>
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"/>
-      
       <title>Instalura</title>
       <link
         rel="icon"
@@ -59,6 +56,9 @@ export function HeadTab() {
         property="og:description"
         content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"
       />
+
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"/>
     </Head>
   )
 }
