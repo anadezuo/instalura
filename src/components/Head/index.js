@@ -1,34 +1,72 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-export function HeadTab() {
+export default function HeadTab() {
   return (
     <Head>
-
       {/* Primary Meta Tags */}
       <title>Instalura</title>
-      <meta name="title" content="Instalura"/>
-      <meta name="description" content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"/>
+      <meta name="title" content="Instalura" />
+      <meta
+        name="description"
+        content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"
+      />
       <meta name="theme-color" content="#ffffff" />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website"/>
-      <meta property="og:url" content="https://instalura-anadezuo.vercel.app/"/>
-      <meta property="og:title" content="Instalura"/>
-      <meta property="og:description" content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"/>
-      <meta property="og:image" content="https://instalura-anadezuo.vercel.app/instalura-capa.png"/>
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:url"
+        content="https://instalura-anadezuo.vercel.app/"
+      />
+      <meta property="og:title" content="Instalura" />
+      <meta
+        property="og:description"
+        content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"
+      />
+      <meta
+        property="og:image"
+        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
+      />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image"/>
-      <meta property="twitter:url" content="https://instalura-anadezuo.vercel.app/"/>
-      <meta property="twitter:title" content="Instalura"/>
-      <meta property="twitter:description" content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"/>
-      <meta property="twitter:image" content="https://instalura-anadezuo.vercel.app/instalura-capa.png"/>
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta
+        property="twitter:url"
+        content="https://instalura-anadezuo.vercel.app/"
+      />
+      <meta property="twitter:title" content="Instalura" />
+      <meta
+        property="twitter:description"
+        content="Quem saber como está essa rede social? Vem conferir  essa construção durante o Bootcamp Front End Avançado da Alura!"
+      />
+      <meta
+        property="twitter:image"
+        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
+      />
 
-      <link rel="icon" type="image/png" sizes="32x32" href="https://instalura-anadezuo.vercel.app/favicon-32x32.png"/>
-      <link rel="icon" type="image/png" sizes="16x16" href="https://instalura-anadezuo.vercel.app/favicon-16x16.png"/>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
 
       <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      ></link>
     </Head>
-  )
+  );
 }
