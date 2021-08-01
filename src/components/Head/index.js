@@ -24,9 +24,6 @@ export function HeadTab() {
       <meta property="twitter:image" content="https://instalura-anadezuo.vercel.app/instalura-capa.png"/>
 
 
-      <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"></link>
-
     </Head>
   )
 }
