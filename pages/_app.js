@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GlobalStyle } from '../src/components/UI/GlobalStyle';
-import { HeadTab } from '../src/components/commons/Head';
+import { HeadTab } from '../src/components/Head';
 import styled, { ThemeProvider } from 'styled-components';
 import { ThemeLight, ThemeDark } from '../src/components/theme';
 import SwitcherTheme from '../src/components/SwitcherTheme';
