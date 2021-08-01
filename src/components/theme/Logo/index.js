@@ -7,7 +7,7 @@ export function Logo() {
   //const color =  props.theme.logo;
   //TODO: descobrir por que os props estão chegando aqui undefined
 
-  const color = 'black';
+  const color = '#070C0E';
 
   return (
     <svg width="96" height="24" viewBox="0 0 131 32" fill="none" xmlns="http://www.w3.org/2000/svg">

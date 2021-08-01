@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GlobalStyle } from '../src/components/UI/GlobalStyle';
-import { HeadTab } from '../src/components/Head';
+import { HeadTab } from '../src/components/commons/Head';
 import styled, { ThemeProvider } from 'styled-components';
 import { ThemeLight, ThemeDark } from '../src/components/theme';
 import SwitcherTheme from '../src/components/SwitcherTheme';
@@ -12,8 +12,8 @@ export const ButtonTheme = styled.button`
   background-color: inherit;
   border: none;
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 `;
 
 export default function App({ Component, pageProps}) {
@@ -27,10 +27,10 @@ export default function App({ Component, pageProps}) {
     <>
       <HeadTab />
       <ThemeProvider theme={themeUser ? ThemeLight : ThemeDark}>
+        <GlobalStyle />
         <ButtonTheme onClick={changeTheme}>
           <SwitcherTheme theme={themeUser} />
         </ButtonTheme>
-        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

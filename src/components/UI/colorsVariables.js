@@ -19,7 +19,7 @@ export const colorsLight = {
   },
   borders: {
     main: {
-      color: '#F1F1F1',
+      color: '#F2F2F2',
     },
   },
   primary: {
@@ -73,7 +73,7 @@ export const colorsDark = {
   },
   borders: {
     main: {
-      color: '#D4D4D4',
+      color: '#181F22',
     },
   },
   primary: {
@@ -94,7 +94,7 @@ export const colorsDark = {
       contrastText: '#030506',
     },
     light: {
-      color: '#88989E',
+      color: '#D4D4D4',
       contrastText: '#030506',
     },
   },
