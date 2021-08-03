@@ -19,7 +19,7 @@ const TextBase = styled.span`
   ${(props) => TextStyleVariantsMap[props.variant]}
 `;
 
-export default function Text({tag, variant, children}){
+export function Text({tag, variant, children}){
   return (
     <TextBase
       as={tag}
