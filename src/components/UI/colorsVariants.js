@@ -1,16 +1,3 @@
-//Light theme
-/*export const primaryLight = '#d7385e'
-export const secondaryLight = '#FB7B6B'
-
-export const backgroundLight = '#F2F2F2'
-export const textBackgroundLight = '#070C0E'
-export const tertiaryLightMain = '#070C0E'
-export const tertiaryLight = '#88989E'
-
-export const logoLight = '#070C0E';
-
-export const textButtonPrimaryLight = 'white'*/
-
 export const colorsLight = {
   background: {
     main: {
@@ -51,19 +38,6 @@ export const colorsLight = {
   },
 };
 
-
-//Dark theme
-/*export const primaryDark = '#d7385e'
-export const secondaryDark = '#FB7B6B'
-
-export const backgroundDark = '#030506'
-export const textBackgroundDark = '#F2F2F2'
-export const tertiaryDarkMain = '#D4D4D4'
-export const tertiaryDark = '#F2F2F2'
-
-export const textButtonPrimaryDark = 'white'
-
-export const logoDark = 'white';*/
 
 export const colorsDark = {
   background: {
