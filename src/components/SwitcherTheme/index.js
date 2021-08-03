@@ -14,5 +14,5 @@ const dark = <Image src={iconThemeDark} alt="Tema claro" />
 
 //ira receber um tema
 export default function selectionIconTheme({theme}) {
-  return (theme ? dark : light);
+  return (theme ? light : dark);
 };

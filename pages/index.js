@@ -10,11 +10,11 @@ const HomeWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export default function Home() {
+export default function Home({setTheme}) {
   return (
     <HomeWrapper>
-      <Menu />
-      <Footer />
+      <Menu setTheme={setTheme}/>
+      <Footer /> 
     </HomeWrapper>
   );
 }
