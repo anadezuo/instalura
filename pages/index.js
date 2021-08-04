@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
+import Article from '../src/components/commons/Article';
 
 const HomeWrapper = styled.div`
   flex: 1;
@@ -14,6 +15,7 @@ export default function Home({setTheme}) {
   return (
     <HomeWrapper>
       <Menu setTheme={setTheme}/>
+      <Article />
       <Footer /> 
     </HomeWrapper>
   );
