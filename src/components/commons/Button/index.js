@@ -5,8 +5,7 @@ import breakpointsMedia from '../../theme/utils/breakpointsMedia';
 import propsByStyle from '../../theme/utils/propsByStyle';
 
 const ButtonDefault = css`
-  background-color: ${(props) =>
-    get(props.theme, `colors.${props.variant}.color`)};
+  background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
   color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
 `;
 
