@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
-import breakpointsMedia from '../../theme/utils/breakpointsMedia';
-import propsByStyle from '../../theme/utils/propsByStyle';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import propsByStyle from '../../../theme/utils/propsByStyle';
 
 const ButtonDefault = css`
   background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};

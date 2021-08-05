@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import propsByStyle from '../../theme/utils/propsByStyle';
+import propsByStyle from '../../../theme/utils/propsByStyle';
 import get from 'lodash/get';
 
 export const TextStyleVariantsMap = {

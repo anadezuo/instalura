@@ -6,8 +6,7 @@ export const ButtonTheme = styled.button`
   background-color: inherit;
   border: none;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  padding-left: 15px;
 `;
 
 export function SelectionIconTheme({ theme }) {

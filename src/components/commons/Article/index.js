@@ -3,7 +3,7 @@ import { Text } from '../../../components/foundation/Text';
 
 export default function Article() {
   return (
-    <div>
+    <article>
       <Text
         variant="title"
         tag="h1"
@@ -39,6 +39,6 @@ export default function Article() {
       >
         Cadastrar
       </Button>
-    </div>
+    </article>
   );
 }

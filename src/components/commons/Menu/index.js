@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { Logo } from '../../theme/Logo';
+import { Logo } from '../../../theme/Logo';
 import { MenuWrapper } from './styles/MenuWrapper';
 import { Button } from '../Button';
 import { Text } from '../../foundation/Text';
-import { ThemeLight, ThemeDark } from '../../../components/theme';
-import {
-  ButtonTheme,
-  SelectionIconTheme,
-} from '../../theme/SwitcherTheme';
+import { ThemeLight, ThemeDark } from '../../../theme';
+import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
 
 export default function Menu({ setTheme }) {
   const links = [
@@ -51,11 +48,18 @@ export default function Menu({ setTheme }) {
         <Button ghost variant="secondary.main">
           Entrar
         </Button>
-        <Button variant="primary.main">Cadastrar</Button>
+        <Button
+          variant="primary.main"
+        >
+          Cadastrar
+        </Button>
         <ButtonTheme onClick={changeTheme}>
           <SelectionIconTheme theme={isDark} />
         </ButtonTheme>
+        
       </MenuWrapper.RightSide>
     </MenuWrapper>
+
+
   );
 }
