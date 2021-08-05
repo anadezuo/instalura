@@ -6,9 +6,6 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    background-color: ${function (props) {
-      return props.theme.colors.background.main.color;
-    }};
   }
 
   ${normalize}
@@ -17,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: ${({theme}) => theme.fontFamily};
+        background-color: ${function (props) {
+      return props.theme.colors.background.main.color;
+    }};
     }
 
     /* Full height layout */

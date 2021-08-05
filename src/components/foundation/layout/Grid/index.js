@@ -27,7 +27,8 @@ const Container = styled.div`
     `,
   })}
 
-  ${propToStyle('marginTop')}
+  ${propToStyle('marginTop')};
+  ${propToStyle('backgroundColor')};
 `;
 
 const Row = styled.div`
@@ -35,6 +36,7 @@ const Row = styled.div`
   flex-wrap: wrap;
   margin-right: -16px;
   margin-left: -16px;
+  ${propToStyle('backgroundColor')};
 `;
 
 function createCssColumnsByValue(value) {
@@ -89,6 +91,7 @@ const Col = styled.div`
   ${propToStyle('alignItems')};
   ${propToStyle('justifyContent')};
   ${propToStyle('flexDirection')};
+  ${propToStyle('backgroundColor')};
 `;
 
 export const Grid = {

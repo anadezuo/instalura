@@ -36,6 +36,12 @@ export const colorsLight = {
       color: '#070C0E',
     }
   },
+  backgroundImage:{
+    main:{
+      color: '#F2F2F2',
+      contrastColor: '#fff',
+    }
+  }
 };
 
 
@@ -77,4 +83,10 @@ export const colorsDark = {
       color: '#fff',
     }
   },
+  backgroundImage:{
+    main:{
+      color: '#F2F2F2',
+      contrastColor: '#030506',
+    }
+  }
 };

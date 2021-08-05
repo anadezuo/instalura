@@ -32,6 +32,7 @@ const TextBase = styled.span`
   ${propToStyle('marginTop')};
 
   ${(props) => hasColor(props)};
+  ${propToStyle('backgroundColor')}
 `;
 
 export function Text({tag, variant, color, children, ...props}){
