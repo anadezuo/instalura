@@ -4,7 +4,7 @@ import Footer from '../src/components/commons/Footer';
 import Article from '../src/components/commons/Article';
 import { Grid } from '../src/components/foundation/layout/Grid';
 import PhoneImage from '../src/assets/images/phones.png';
-import Image from 'next/Image';
+import Image from 'next/image';
 
 const HomeWrapper = styled.div`
   flex: 1;
