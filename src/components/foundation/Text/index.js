@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import propsByStyle from '../../../theme/utils/propsByStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 import get from 'lodash/get';
 
 export const TextStyleVariantsMap = {
@@ -26,9 +26,11 @@ function hasColor(props){
 
 const TextBase = styled.span`
   ${(props) => TextStyleVariantsMap[props.variant]}
-  ${propsByStyle('textAlign')};
-  ${propsByStyle('marginBottom')};
-  ${propsByStyle('margin')};
+  ${propToStyle('textAlign')};
+  ${propToStyle('marginBottom')};
+  ${propToStyle('margin')};
+  ${propToStyle('marginTop')};
+
   ${(props) => hasColor(props)};
 `;
 

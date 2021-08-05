@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import propsByStyle from '../../../theme/utils/propsByStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonDefault = css`
   background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
@@ -40,8 +40,9 @@ export const Button = styled.button`
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${(props) => props.theme.borderRadius};
 
-  ${propsByStyle('margin')};
-  ${propsByStyle('display')};
+  ${propToStyle('margin')};
+  ${propToStyle('marginTop')};
+  ${propToStyle('display')};
 
   &:hover,
   &:focus {

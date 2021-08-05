@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../../theme/utils/propToStyle';
 
 const Container = styled.div`
   width: 100%;
@@ -25,6 +26,8 @@ const Container = styled.div`
       max-width: 1222px;
     `,
   })}
+
+  ${propToStyle('marginTop')}
 `;
 
 const Row = styled.div`
@@ -57,30 +60,35 @@ const Col = styled.div`
   max-width: 100%;
 
   ${function ({ value }) {
-      if (typeof value === 'number') {
-        return createCssByValue(value);
-      }
-      return breakpointsMedia({
-        xs: createCssColumnsByValue(value?.xs),
-        sm: createCssColumnsByValue(value?.sm),
-        md: createCssColumnsByValue(value?.md),
-        lg: createCssColumnsByValue(value?.lg),
-        xl: createCssColumnsByValue(value?.xl),
-      })
-    }};
+    if (typeof value === 'number') {
+      return createCssByValue(value);
+    }
+    return breakpointsMedia({
+      xs: createCssColumnsByValue(value?.xs),
+      sm: createCssColumnsByValue(value?.sm),
+      md: createCssColumnsByValue(value?.md),
+      lg: createCssColumnsByValue(value?.lg),
+      xl: createCssColumnsByValue(value?.xl),
+    })
+  }};
 
-${function ({ offset }) {
-      if (typeof offset === 'number') {
-        return createCssColumnsByOffSet(offset);
-      }
-      return breakpointsMedia({
-        xs: createCssColumnsByOffSet(offset?.xs),
-        sm: createCssColumnsByOffSet(offset?.sm),
-        md: createCssColumnsByOffSet(offset?.md),
-        lg: createCssColumnsByOffSet(offset?.lg),
-        xl: createCssColumnsByOffSet(offset?.xl),
-      })
-    }}
+  ${function ({ offset }) {
+    if (typeof offset === 'number') {
+      return createCssColumnsByOffSet(offset);
+    }
+    return breakpointsMedia({
+      xs: createCssColumnsByOffSet(offset?.xs),
+      sm: createCssColumnsByOffSet(offset?.sm),
+      md: createCssColumnsByOffSet(offset?.md),
+      lg: createCssColumnsByOffSet(offset?.lg),
+      xl: createCssColumnsByOffSet(offset?.xl),
+    })
+  }};
+
+  ${propToStyle('display')};
+  ${propToStyle('alignItems')};
+  ${propToStyle('justifyContent')};
+  ${propToStyle('flexDirection')};
 `;
 
 export const Grid = {
