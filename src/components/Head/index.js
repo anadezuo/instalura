@@ -26,7 +26,7 @@ export default function AppHead() {
       />
       <meta
         property="og:image"
-        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
+        content="https://instalura-anadezuo.vercel.app/images/instalura-capa.png"
       />
 
       {/* Twitter */}
@@ -42,7 +42,7 @@ export default function AppHead() {
       />
       <meta
         property="twitter:image"
-        content="https://instalura-anadezuo.vercel.app/instalura-capa.png"
+        content="https://instalura-anadezuo.vercel.app/images/instalura-capa.png"
       />
 
       <link
