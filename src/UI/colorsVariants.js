@@ -32,18 +32,17 @@ export const colorsLight = {
     },
   },
   logo: {
-    main:{
+    main: {
       color: '#070C0E',
-    }
+    },
   },
-  backgroundImage:{
-    main:{
+  backgroundImage: {
+    main: {
       color: '#F2F2F2',
       contrastColor: '#fff',
-    }
-  }
+    },
+  },
 };
-
 
 export const colorsDark = {
   background: {
@@ -79,14 +78,14 @@ export const colorsDark = {
     },
   },
   logo: {
-    main:{
+    main: {
       color: '#fff',
-    }
+    },
   },
-  backgroundImage:{
-    main:{
+  backgroundImage: {
+    main: {
       color: '#F2F2F2',
       contrastColor: '#030506',
-    }
-  }
+    },
+  },
 };

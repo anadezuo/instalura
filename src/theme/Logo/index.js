@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-export function Logo() {
+export default function Logo() {
   const themeContext = useContext(ThemeContext);
-  const color = themeContext.colors.logo.main.color;
+  const { color } = themeContext.colors.logo.main;
 
   return (
     <svg

@@ -1,6 +1,7 @@
+import React from 'react';
 import Head from 'next/head';
 
-export function AppHead() {
+export default function AppHead() {
   return (
     <Head>
       {/* Primary Meta Tags */}

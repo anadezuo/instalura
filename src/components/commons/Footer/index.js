@@ -30,10 +30,10 @@ const FooterWrapper = styled.footer`
 `;
 
 export default function Footer(props) {
+  // TODO: alterar o icone do alura acordo com o tema
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <FooterWrapper {...props}>
-      {/*TODO: como alterar o icone de acordo com o tema */}
       <a href="https://www.alura.com.br/">
         <img
           src="https://www.alura.com.br/assets/img/alura-logo.svg"
@@ -41,7 +41,9 @@ export default function Footer(props) {
         />
       </a>
       <p>
-        Orgulhosamente criado durante o {' '}
+        Orgulhosamente criado durante o
+        {' '}
+        {' '}
         <a href="https://www.alura.com.br/">
           <span>Bootcamp Alura JAM Stack</span>
         </a>

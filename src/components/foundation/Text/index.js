@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import propToStyle from '../../../theme/utils/propToStyle';
 import get from 'lodash/get';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 export const TextStyleVariantsMap = {
   paragraph1: css`
@@ -17,12 +17,13 @@ export const TextStyleVariantsMap = {
   `,
 };
 
-function hasColor(props){
-  if(props.color !== undefined){
-    return css`
-      color: ${(props) => get(props.theme, `colors.${props.color}.color`)};`
+function hasColor(props) {
+  if (props.color !== undefined) {
+    // eslint-disable-next-line no-shadow
+    return css`color: ${(props) => get(props.theme, `colors.${props.color}.color`)};`;
   }
-};
+  return '';
+}
 
 const TextBase = styled.span`
   ${(props) => TextStyleVariantsMap[props.variant]}
@@ -35,12 +36,14 @@ const TextBase = styled.span`
   ${propToStyle('backgroundColor')}
 `;
 
-export function Text({tag, variant, color, children, ...props}){
+export function Text({
+  tag, variant, children, ...props
+}) {
   return (
     <TextBase
       as={tag}
       variant={variant}
-      color={color}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {... props}
     >
       {children}
@@ -49,12 +52,12 @@ export function Text({tag, variant, color, children, ...props}){
 }
 
 Text.propTypes = {
-  tag: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
-  children:PropTypes.node.isRequired
-}
+  tag: PropTypes.string,
+  variant: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
-}
+};

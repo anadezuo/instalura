@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia'
+import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 import { TextStyleVariantsMap } from '../../../foundation/Text';
 
-export const MenuWrapper = styled.nav`
+const MenuWrapper = styled.nav`
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -59,8 +59,8 @@ MenuWrapper.Center = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 17px;
-  border-top: 1px solid ${({theme}) =>  theme.colors.borders.main.color};
-  border-bottom: 1px solid ${({theme}) =>  theme.colors.borders.main.color};
+  border-top: 1px solid ${({ theme }) => theme.colors.borders.main.color};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borders.main.color};
   padding: 12px;
   
   ${breakpointsMedia({
@@ -79,8 +79,8 @@ MenuWrapper.Center = styled.div`
     text-align: center;
     display: block;
     text-decoration: none;
-    color: ${({theme}) =>  theme.colors.tertiary.light.color};
-    transition: ${({theme}) =>  theme.transition};
+    color: ${({ theme }) => theme.colors.tertiary.light.color};
+    transition: ${({ theme }) => theme.transition};
     ${breakpointsMedia({
     xs: css`
         ${TextStyleVariantsMap.smallestException}
@@ -92,7 +92,7 @@ MenuWrapper.Center = styled.div`
     &:hover,
     &:focus {
       font-weight: 500;
-      color: ${({theme}) =>  theme.colors.tertiary.main.color};
+      color: ${({ theme }) => theme.colors.tertiary.main.color};
       
     }
   }
@@ -111,3 +111,5 @@ MenuWrapper.RightSide = styled.div`
     `,
   })}
 `;
+
+export default MenuWrapper;

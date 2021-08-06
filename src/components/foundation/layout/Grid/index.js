@@ -41,18 +41,18 @@ const Row = styled.div`
 
 function createCssColumnsByValue(value) {
   return value
-          ? css`
+    ? css`
             flex-grow: 0;
             flex-shrink: 0;
             flex-basis: ${(100 * value) / 12}%;
             max-width: ${(100 * value) / 12}%;
           `
-          : '';
-};
+    : '';
+}
 
 function createCssColumnsByOffSet(offset) {
-  return offset ? css`margin-left: ${(100 * offset) / 12}%;`: '';
-};
+  return offset ? css`margin-left: ${(100 * offset) / 12}%;` : '';
+}
 
 const Col = styled.div`
   padding-right: 16px;
@@ -61,9 +61,9 @@ const Col = styled.div`
   flex-grow: 1;
   max-width: 100%;
 
-  ${function ({ value }) {
+  ${({ value }) => {
     if (typeof value === 'number') {
-      return createCssByValue(value);
+      return createCssColumnsByValue(value);
     }
     return breakpointsMedia({
       xs: createCssColumnsByValue(value?.xs),
@@ -71,10 +71,10 @@ const Col = styled.div`
       md: createCssColumnsByValue(value?.md),
       lg: createCssColumnsByValue(value?.lg),
       xl: createCssColumnsByValue(value?.xl),
-    })
+    });
   }};
 
-  ${function ({ offset }) {
+  ${({ offset }) => {
     if (typeof offset === 'number') {
       return createCssColumnsByOffSet(offset);
     }
@@ -84,7 +84,7 @@ const Col = styled.div`
       md: createCssColumnsByOffSet(offset?.md),
       lg: createCssColumnsByOffSet(offset?.lg),
       xl: createCssColumnsByOffSet(offset?.xl),
-    })
+    });
   }};
 
   ${propToStyle('display')};
@@ -94,8 +94,10 @@ const Col = styled.div`
   ${propToStyle('backgroundColor')};
 `;
 
-export const Grid = {
+const Grid = {
   Container,
   Row,
   Col,
 };
+
+export default Grid;

@@ -1,5 +1,6 @@
-import { Button } from '../../../components/commons/Button';
-import { Text } from '../../../components/foundation/Text';
+import React from 'react';
+import Button from '../Button';
+import { Text } from '../../foundation/Text';
 
 export default function Article() {
   return (

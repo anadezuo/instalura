@@ -11,12 +11,10 @@ const ButtonDefault = css`
 
 const ButtonGhost = css`
   background: transparent;
-  color: ${function (props) {
-    return get(props.theme, `colors.${props.variant}.color`);
-  }};
+  color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -31,11 +29,10 @@ export const Button = styled.button`
     `,
   })};
 
-  ${TextStyleVariantsMap.smallestException}
+  ${TextStyleVariantsMap.smallestException};
 
-  ${function (props) {
-    return props.ghost ? ButtonGhost : ButtonDefault;
-  }};
+
+  ${(props) => (props.ghost ? ButtonGhost : ButtonDefault)}
 
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${(props) => props.theme.borderRadius};
@@ -49,3 +46,5 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 `;
+
+export default Button;

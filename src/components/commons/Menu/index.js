@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Logo } from '../../../theme/Logo';
-import { MenuWrapper } from './styles/MenuWrapper';
-import { Button } from '../Button';
+import Logo from '../../../theme/Logo';
+import MenuWrapper from './styles/MenuWrapper';
+import Button from '../Button';
 import { Text } from '../../foundation/Text';
 import { ThemeLight, ThemeDark } from '../../../theme';
 import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
 
+// eslint-disable-next-line react/prop-types
 export default function Menu({ setTheme }) {
   const links = [
     {
@@ -24,7 +25,8 @@ export default function Menu({ setTheme }) {
 
   const [isDark, setIsDark] = useState(false);
   const changeTheme = () => {
-    isDark ? setTheme(ThemeLight) : setTheme(ThemeDark);
+    // eslint-disable-next-line no-unused-expressions
+    isDark ? (setTheme(ThemeLight)) : (setTheme(ThemeDark));
     setIsDark(!isDark);
   };
 
@@ -34,15 +36,13 @@ export default function Menu({ setTheme }) {
         <Logo />
       </MenuWrapper.LeftSide>
       <MenuWrapper.Center>
-        {links.map((link) => {
-          return (
-            <li key={link.text}>
-              <Text variant="smallestException" tag="a" href={link.url}>
-                {link.text}
-              </Text>
-            </li>
-          );
-        })}
+        { links.map((link) => (
+          <li key={link.text}>
+            <Text variant="smallestException" tag="a" href={link.url}>
+              {link.text}
+            </Text>
+          </li>
+        ))}
       </MenuWrapper.Center>
       <MenuWrapper.RightSide>
         <Button ghost variant="secondary.main">
@@ -56,10 +56,8 @@ export default function Menu({ setTheme }) {
         <ButtonTheme onClick={changeTheme}>
           <SelectionIconTheme theme={isDark} />
         </ButtonTheme>
-        
+
       </MenuWrapper.RightSide>
     </MenuWrapper>
-
-
   );
 }
