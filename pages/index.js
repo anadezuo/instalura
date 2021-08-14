@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '../src/components/foundation/layout/Box';
 import Menu from '../src/components/commons/Menu';
 import Article from '../src/components/commons/Article';
 import Grid from '../src/components/foundation/layout/Grid';
 import Footer from '../src/components/commons/Footer';
+import Modal from '../src/components/commons/Modal';
 
 // eslint-disable-next-line react/prop-types
-export default function Home({ setTheme }) {
+export default function Home({ theme, setTheme }) {
+  const [modal, setModal] = useState(false);
+
   return (
     <Box
       flex="1"
@@ -14,10 +17,25 @@ export default function Home({ setTheme }) {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
+      backgroundImage={theme ? 'url(/images/bubbles.svg)' : 'url(/images/bubbles-dark.svg)'}
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
+      <Modal
+        isOpen={modal}
+        onClose={() => setModal(false)}
+      >
+        {(propsModal) => (
+          <Box
+            backgroundColor="white"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...propsModal}
+          >
+            Modals
+          </Box>
+        )}
+      </Modal>
+
       <Menu setTheme={setTheme} />
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
@@ -31,7 +49,7 @@ export default function Home({ setTheme }) {
             flexDirection="column"
             backgroundColor="inherit"
           >
-            <Article />
+            <Article setModal={setModal} />
           </Grid.Col>
           <Grid.Col value={{ xs: 12, md: 6 }}>
             <img

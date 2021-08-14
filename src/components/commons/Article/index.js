@@ -2,7 +2,8 @@ import React from 'react';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
 
-export default function Article() {
+// eslint-disable-next-line react/prop-types
+export default function Article({ setModal }) {
   return (
     <article>
       <Text
@@ -30,6 +31,7 @@ export default function Article() {
         margin={{ xs: 'auto', md: 'initial' }}
         marginTop={{ xs: '24px', md: '40px' }}
         display="block"
+        onClick={() => setModal(true)}
       >
         Cadastrar
       </Button>
