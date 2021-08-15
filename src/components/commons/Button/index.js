@@ -40,6 +40,15 @@ const Button = styled.button`
   ${propToStyle('margin')};
   ${propToStyle('marginTop')};
   ${propToStyle('display')};
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
+  }
+
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%;
+  `};
 
   &:hover,
   &:focus {

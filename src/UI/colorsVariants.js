@@ -42,6 +42,11 @@ export const colorsLight = {
       contrastColor: '#fff',
     },
   },
+  modal: {
+    main: {
+      color: 'rgba(0, 0, 0, 0.1)',
+    },
+  },
 };
 
 export const colorsDark = {
@@ -86,6 +91,11 @@ export const colorsDark = {
     main: {
       color: '#F2F2F2',
       contrastColor: '#030506',
+    },
+  },
+  modal: {
+    main: {
+      color: 'rgba(255, 255, 255, 0.1)',
     },
   },
 };

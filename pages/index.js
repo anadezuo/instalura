@@ -5,9 +5,10 @@ import Article from '../src/components/commons/Article';
 import Grid from '../src/components/foundation/layout/Grid';
 import Footer from '../src/components/commons/Footer';
 import Modal from '../src/components/commons/Modal';
+import FormCadastro from '../src/components/patterns/FormCadastro';
 
 // eslint-disable-next-line react/prop-types
-export default function Home({ setTheme }) {
+export default function Home({ theme, setTheme }) {
   const [modal, setModal] = useState(false);
 
   return (
@@ -23,15 +24,7 @@ export default function Home({ setTheme }) {
     >
       <Modal isOpen={modal} onClose={() => setModal(false)}>
         {(propsModal) => (
-          <Box
-            backgroundColor="white"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...propsModal}
-          >
-            <div>
-              Modal sendo exibido com animação e zindex
-            </div>
-          </Box>
+          <FormCadastro propsModal={propsModal} theme={theme} />
         )}
       </Modal>
 
