@@ -7,7 +7,7 @@ import Footer from '../src/components/commons/Footer';
 import Modal from '../src/components/commons/Modal';
 
 // eslint-disable-next-line react/prop-types
-export default function Home({ theme, setTheme }) {
+export default function Home({ setTheme }) {
   const [modal, setModal] = useState(false);
 
   return (
@@ -17,21 +17,20 @@ export default function Home({ theme, setTheme }) {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage={theme ? 'url(/images/bubbles.svg)' : 'url(/images/bubbles-dark.svg)'}
+      backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Modal
-        isOpen={modal}
-        onClose={() => setModal(false)}
-      >
+      <Modal isOpen={modal} onClose={() => setModal(false)}>
         {(propsModal) => (
           <Box
             backgroundColor="white"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...propsModal}
           >
-            Modals
+            <div>
+              Modal sendo exibido com animação e zindex
+            </div>
           </Box>
         )}
       </Modal>
