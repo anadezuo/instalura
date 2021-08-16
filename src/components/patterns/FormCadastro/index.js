@@ -7,6 +7,7 @@ import Box from '../../foundation/layout/Box';
 import Grid from '../../foundation/layout/Grid';
 import { Text } from '../../foundation/Text';
 import iconClose from '../../../assets/images/iconClose.png';
+import { TypesSnackbar, SnackbarAlert } from '../../foundation/Snackbar';
 
 const ButtonClose = styled.button`
   position: fixed;
@@ -15,11 +16,21 @@ const ButtonClose = styled.button`
   margin: 20px;
   border: none;
   background-color: ${({ theme }) => theme.colors.background.main.color};
-            
 `;
 
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
 function FormContent() {
-  const [infoUser, setInfoUser] = useState({ email: '', usuario: '' });
+  const [infoUser, setInfoUser] = useState({ nome: '', usuario: '' });
+  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
+  const [submissionStatus, setSubmissionStatus] = React.useState(
+    formStates.DEFAULT,
+  );
 
   function handleChange(event) {
     const fieldName = event.target.getAttribute('name');
@@ -31,9 +42,38 @@ function FormContent() {
 
   function handleCadastro(event) {
     event.preventDefault();
+
+    setIsFormSubmitted(true);
+
+    const userDTO = {
+      username: infoUser.usuario,
+      name: infoUser.nome,
+    };
+    fetch('https://instalura-api.vercel.app/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userDTO),
+    })
+      .then((respostaDoServidor) => {
+        if (respostaDoServidor.ok) {
+          return respostaDoServidor.json();
+        }
+        throw new Error('Não foi possível cadastrar o usuário');
+      })
+      .then((respostaConvertidaEmObjeto) => {
+        setSubmissionStatus(formStates.DONE);
+        setInfoUser({ nome: '', usuario: '' });
+        console.log(respostaConvertidaEmObjeto);
+      })
+      .catch((error) => {
+        setSubmissionStatus(formStates.ERROR);
+        console.error(error);
+      });
   }
 
-  const isActiveButtonCadastro = infoUser.usuario.length === 0 || infoUser.email.length === 0;
+  const isActiveButtonCadastro = infoUser.usuario.length === 0 || infoUser.nome.length === 0;
 
   return (
     <form onSubmit={handleCadastro}>
@@ -52,10 +92,9 @@ function FormContent() {
 
       <div>
         <TextField
-          placeholder="Email"
-          type="email"
-          name="email"
-          value={infoUser.email}
+          placeholder="Nome"
+          name="nome"
+          value={infoUser.nome}
           onChange={handleChange} // capturadores
         />
       </div>
@@ -76,6 +115,15 @@ function FormContent() {
         >
           Cadastrar
         </Button>
+        {isFormSubmitted
+          && submissionStatus === formStates.DONE
+          && (
+            <SnackbarAlert type={TypesSnackbar.SUCCESS} message="Usuário cadastrado com sucesso!" />
+          )}
+
+        {isFormSubmitted
+        && submissionStatus === formStates.ERROR
+          && (<SnackbarAlert type={TypesSnackbar.ERROR} message="Usuário não cadastrado." />)}
       </div>
     </form>
   );
