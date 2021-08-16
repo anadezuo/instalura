@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../../../theme/Logo';
 import MenuWrapper from './styles/MenuWrapper';
 import Button from '../Button';
@@ -6,7 +7,6 @@ import { Text } from '../../foundation/Text';
 import { ThemeLight, ThemeDark } from '../../../theme';
 import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
 
-// eslint-disable-next-line react/prop-types
 export default function Menu({ setTheme }) {
   const links = [
     {
@@ -54,10 +54,14 @@ export default function Menu({ setTheme }) {
           Cadastrar
         </Button>
         <ButtonTheme onClick={changeTheme}>
-          <SelectionIconTheme theme={isDark} />
+          <SelectionIconTheme isThemeDark={isDark} />
         </ButtonTheme>
 
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
 }
+
+Menu.propTypes = {
+  setTheme: PropTypes.func.isRequired,
+};

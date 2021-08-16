@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
@@ -138,7 +139,6 @@ function FormContent() {
   );
 }
 
-// eslint-disable-next-line react/prop-types
 export default function FormCadastro({ theme, propsModal, setModal }) {
   return (
     <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
@@ -176,3 +176,9 @@ export default function FormCadastro({ theme, propsModal, setModal }) {
     </Grid.Row>
   );
 }
+
+FormCadastro.propTypes = {
+  theme: PropTypes.shape({}).isRequired,
+  propsModal: PropTypes.shape({}).isRequired,
+  setModal: PropTypes.func.isRequired,
+};

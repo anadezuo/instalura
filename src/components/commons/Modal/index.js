@@ -38,8 +38,6 @@ const LockScroll = createGlobalStyle`
     overflow: hidden;
   }
 `;
-
-// eslint-disable-next-line react/prop-types
 export default function Modal({ isOpen, onClose, children }) {
   return (
     <ModalWrapper
@@ -78,9 +76,8 @@ export default function Modal({ isOpen, onClose, children }) {
   );
 }
 
-Modal.prototype = {
-  isOpen: PropTypes.bool.isRequerid,
-  onClose: PropTypes.func.isRequerid,
-  children: PropTypes.func.isRequerid,
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.func.isRequired,
 };
-Modal.default = {};
