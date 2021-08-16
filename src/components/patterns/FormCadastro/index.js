@@ -31,6 +31,7 @@ function FormContent() {
   const [submissionStatus, setSubmissionStatus] = React.useState(
     formStates.DEFAULT,
   );
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
   function handleChange(event) {
     const fieldName = event.target.getAttribute('name');
@@ -42,8 +43,8 @@ function FormContent() {
 
   function handleCadastro(event) {
     event.preventDefault();
-
     setIsFormSubmitted(true);
+    setOpenSnackbar(true);
 
     const userDTO = {
       username: infoUser.usuario,
@@ -115,15 +116,23 @@ function FormContent() {
         >
           Cadastrar
         </Button>
-        {isFormSubmitted
-          && submissionStatus === formStates.DONE
-          && (
-            <SnackbarAlert type={TypesSnackbar.SUCCESS} message="Usuário cadastrado com sucesso!" />
-          )}
+        {isFormSubmitted && submissionStatus === formStates.DONE && (
+          <SnackbarAlert
+            type={TypesSnackbar.SUCCESS}
+            message="Usuário cadastrado com sucesso!"
+            openSnackbar={openSnackbar}
+            setOpenSnackbar={setOpenSnackbar}
+          />
+        )}
 
-        {isFormSubmitted
-        && submissionStatus === formStates.ERROR
-          && (<SnackbarAlert type={TypesSnackbar.ERROR} message="Usuário não cadastrado." />)}
+        {isFormSubmitted && submissionStatus === formStates.ERROR && (
+          <SnackbarAlert
+            type={TypesSnackbar.ERROR}
+            message="Usuário não cadastrado."
+            openSnackbar={openSnackbar}
+            setOpenSnackbar={setOpenSnackbar}
+          />
+        )}
       </div>
     </form>
   );
