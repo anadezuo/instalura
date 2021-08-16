@@ -15,16 +15,16 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export function SnackbarAlert({ type, message }) {
-  const [open, setOpen] = React.useState(true);
-
+export function SnackbarAlert({
+  type, message, openSnackbar, setOpenSnackbar,
+}) {
   const handleClose = () => {
-    setOpen(false);
+    setOpenSnackbar(false);
   };
 
   return (
     <div>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={type}>
           {message}
         </Alert>
@@ -36,6 +36,8 @@ export function SnackbarAlert({ type, message }) {
 SnackbarAlert.propTypes = {
   type: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  openSnackbar: PropTypes.bool.isRequired,
+  setOpenSnackbar: PropTypes.func.isRequired,
 };
 
 SnackbarAlert.defaultProps = {};

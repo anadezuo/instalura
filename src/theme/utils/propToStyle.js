@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import breakpointsMedia from './breakpointsMedia';
 
 export default function propToStyle(propName) {
@@ -33,3 +34,7 @@ export default function propToStyle(propName) {
     return '';
   };
 }
+
+propToStyle.propTypes = {
+  placeholder: PropTypes.shape({}).isRequired,
+};

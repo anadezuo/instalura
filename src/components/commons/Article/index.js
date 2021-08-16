@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
 
@@ -38,3 +39,7 @@ export default function Article({ setModal }) {
     </article>
   );
 }
+
+Article.propTypes = {
+  setModal: PropTypes.func.isRequired,
+};

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const ButtonTheme = styled.button`
   background-color: inherit;
@@ -8,7 +9,7 @@ export const ButtonTheme = styled.button`
   padding-left: 15px;
 `;
 
-export function SelectionIconTheme({ theme }) {
+export function SelectionIconTheme({ isThemeDark }) {
   const themeContext = useContext(ThemeContext);
   const { color } = themeContext.colors.primary.main;
 
@@ -54,5 +55,13 @@ export function SelectionIconTheme({ theme }) {
     </svg>
   );
 
-  return theme ? lightIcon : darkIcon;
+  return isThemeDark ? lightIcon : darkIcon;
 }
+
+SelectionIconTheme.propTypes = {
+  isThemeDark: PropTypes.bool,
+};
+
+SelectionIconTheme.defaultProps = {
+  isThemeDark: false,
+};

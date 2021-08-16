@@ -23,5 +23,5 @@ export default function App({ Component, pageProps }) {
 
 App.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.shape.isRequired,
+  pageProps: PropTypes.shape({}).isRequired,
 };

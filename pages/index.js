@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Box from '../src/components/foundation/layout/Box';
 import Menu from '../src/components/commons/Menu';
 import Article from '../src/components/commons/Article';
@@ -7,7 +8,6 @@ import Footer from '../src/components/commons/Footer';
 import Modal from '../src/components/commons/Modal';
 import FormCadastro from '../src/components/patterns/FormCadastro';
 
-// eslint-disable-next-line react/prop-types
 export default function Home({ theme, setTheme }) {
   const [modal, setModal] = useState(false);
 
@@ -60,3 +60,10 @@ export default function Home({ theme, setTheme }) {
     </Box>
   );
 }
+
+Home.propTypes = {
+  theme: PropTypes.shape({}).isRequired,
+  setTheme: PropTypes.func.isRequired,
+};
+
+Home.defaultProps = {};
