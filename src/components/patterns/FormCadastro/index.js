@@ -7,6 +7,7 @@ import Box from '../../foundation/layout/Box';
 import Grid from '../../foundation/layout/Grid';
 import { Text } from '../../foundation/Text';
 import iconClose from '../../../assets/images/iconClose.png';
+import { TypesSnackbar, SnackbarAlert } from '../../foundation/Snackbar';
 
 const ButtonClose = styled.button`
   position: fixed;
@@ -116,12 +117,13 @@ function FormContent() {
         </Button>
         {isFormSubmitted
           && submissionStatus === formStates.DONE
-          && (<p>Deu tudo certo!</p>
+          && (
+            <SnackbarAlert type={TypesSnackbar.SUCCESS} message="Usuário cadastrado com sucesso!" />
           )}
 
         {isFormSubmitted
         && submissionStatus === formStates.ERROR
-          && (<p>Deu tudo errado!</p>)}
+          && (<SnackbarAlert type={TypesSnackbar.ERROR} message="Usuário não cadastrado." />)}
       </div>
     </form>
   );
