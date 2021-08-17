@@ -5,7 +5,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "custom-script": "node ./script-teste.js"
+    "custom-script": "node ./script-teste.js",
+    "lint:fix": "eslint --fix --ignore-path .gitignore .",
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -29,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.1",
     "shelljs": "^0.8.4"
   },
   "license": "MIT"
