@@ -25,5 +25,7 @@ jobs:
           node-version: '14.15.0'
 
       # Runs a single command using the runners shell
+      - name: Instalando dependencias
+        run: npm install
       - name: Executar o linter
-        run: echo Hello, world!
+        run: npm run lint
