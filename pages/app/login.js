@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Faq() {
+export default function Login() {
   return (
     <div>
       <h1>
-        Página sobre perguntas frequentes
+        Página de login
       </h1>
     </div>
   );
