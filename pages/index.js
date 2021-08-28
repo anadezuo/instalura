@@ -32,7 +32,7 @@ export default function Home({ theme, setTheme }) {
         )}
       </Modal>
 
-      <Menu setTheme={setTheme} />
+      <Menu setTheme={setTheme} onCadastrarClick={() => setModal(true)} />
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
@@ -45,7 +45,7 @@ export default function Home({ theme, setTheme }) {
             flexDirection="column"
             backgroundColor="inherit"
           >
-            <Article setModal={setModal} />
+            <Article onCadastrarClick={() => setModal(true)} />
           </Grid.Col>
           <Grid.Col value={{ xs: 12, md: 6 }}>
             <img

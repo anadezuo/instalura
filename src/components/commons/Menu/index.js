@@ -7,7 +7,7 @@ import { Text } from '../../foundation/Text';
 import { ThemeLight, ThemeDark } from '../../../theme';
 import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
 
-export default function Menu({ setTheme }) {
+export default function Menu({ setTheme, onCadastrarClick }) {
   const links = [
     {
       text: 'Home',
@@ -26,7 +26,7 @@ export default function Menu({ setTheme }) {
   const [isDark, setIsDark] = useState(false);
   const changeTheme = () => {
     // eslint-disable-next-line no-unused-expressions
-    isDark ? (setTheme(ThemeLight)) : (setTheme(ThemeDark));
+    isDark ? setTheme(ThemeLight) : setTheme(ThemeDark);
     setIsDark(!isDark);
   };
 
@@ -36,8 +36,13 @@ export default function Menu({ setTheme }) {
         <Logo />
       </MenuWrapper.LeftSide>
       <MenuWrapper.Center>
-        { links.map((link) => (
+        {links.map((link) => (
           <li key={link.text}>
+            {/* <NextLink href={link.url}>
+              <a>
+                {link.text}
+              </a>
+            </NextLink> */}
             <Text variant="smallestException" tag="a" href={link.url}>
               {link.text}
             </Text>
@@ -45,18 +50,15 @@ export default function Menu({ setTheme }) {
         ))}
       </MenuWrapper.Center>
       <MenuWrapper.RightSide>
-        <Button ghost variant="secondary.main">
+        <Button ghost variant="secondary.main" href="/app/login">
           Entrar
         </Button>
-        <Button
-          variant="primary.main"
-        >
+        <Button variant="primary.main" onClick={onCadastrarClick}>
           Cadastrar
         </Button>
         <ButtonTheme onClick={changeTheme}>
           <SelectionIconTheme isThemeDark={isDark} />
         </ButtonTheme>
-
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
@@ -64,4 +66,5 @@ export default function Menu({ setTheme }) {
 
 Menu.propTypes = {
   setTheme: PropTypes.func.isRequired,
+  onCadastrarClick: PropTypes.func.isRequired,
 };

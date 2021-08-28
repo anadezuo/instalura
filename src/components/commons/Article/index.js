@@ -4,7 +4,7 @@ import Button from '../Button';
 import { Text } from '../../foundation/Text';
 
 // eslint-disable-next-line react/prop-types
-export default function Article({ setModal }) {
+export default function Article({ onCadastrarClick }) {
   return (
     <article>
       <Text
@@ -32,7 +32,7 @@ export default function Article({ setModal }) {
         margin={{ xs: 'auto', md: 'initial' }}
         marginTop={{ xs: '24px', md: '40px' }}
         display="block"
-        onClick={() => setModal(true)}
+        onClick={onCadastrarClick}
       >
         Cadastrar
       </Button>
@@ -41,5 +41,5 @@ export default function Article({ setModal }) {
 }
 
 Article.propTypes = {
-  setModal: PropTypes.func.isRequired,
+  onCadastrarClick: PropTypes.func.isRequired,
 };
