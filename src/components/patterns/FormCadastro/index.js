@@ -139,7 +139,7 @@ function FormContent() {
   );
 }
 
-export default function FormCadastro({ theme, propsModal, setModal }) {
+export default function FormCadastro({ theme, propsModal, onCloseModal }) {
   return (
     <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
       <Grid.Col
@@ -164,9 +164,7 @@ export default function FormCadastro({ theme, propsModal, setModal }) {
           {...propsModal}
         >
           <ButtonClose
-            onClick={() => {
-              setModal(false);
-            }}
+            onClick={onCloseModal}
           >
             <Image src={iconClose} alt="Imagem em x que fecha a tela" />
           </ButtonClose>
@@ -180,5 +178,5 @@ export default function FormCadastro({ theme, propsModal, setModal }) {
 FormCadastro.propTypes = {
   theme: PropTypes.shape({}).isRequired,
   propsModal: PropTypes.shape({}).isRequired,
-  setModal: PropTypes.func.isRequired,
+  onCloseModal: PropTypes.func.isRequired,
 };

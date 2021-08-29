@@ -37,10 +37,13 @@ const Row = styled.div`
   margin-right: -16px;
   margin-left: -16px;
   ${propToStyle('flex')}
+  ${propToStyle('marginTop')}
   ${propToStyle('marginLeft')}
+  ${propToStyle('marginBottom')}
   ${propToStyle('marginRight')}
   ${propToStyle('justifyContent')}
   ${propToStyle('backgroundColor')};
+  ${propToStyle('flexDirection')}
 `;
 
 function createCssColumnsByValue(value) {
@@ -97,6 +100,7 @@ const Col = styled.div`
   ${propToStyle('flexDirection')};
   ${propToStyle('backgroundColor')};
   ${propToStyle('paddingRight')};
+  ${propToStyle('order')}
 
 `;
 
