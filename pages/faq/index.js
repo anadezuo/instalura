@@ -1,11 +1,66 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import FAQScreen from '../../src/components/screens/FAQScreen';
 
-export default function FAQPage() {
+export default function FAQPage({ setTheme, theme, faqCategories }) {
+  /* FIXME: essa é a forma de ser realizado com react puro,
+  porém não a melhor forma de fazer com next */
+  /* const [faqCategories, setFaqCategories] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('https://instalura-api.vercel.app/api/content/faq')
+      .then(async (res) => {
+        const response = await res.json();
+        return response.data;
+      })
+      .then((faqCategoriesFromServer) => {
+        setFaqCategories(faqCategoriesFromServer);
+      });
+  });
+
+  const props = {
+    faqCategories,
+  }; */
+
   return (
-    <div>
-      <h1>
-        Página sobre perguntas frequentes
-      </h1>
-    </div>
+    <FAQScreen
+      setTheme={setTheme}
+      theme={theme}
+      faqCategories={faqCategories}
+    />
   );
 }
+
+export async function getStaticProps() {
+  const faqCategories = await fetch(
+    'https://instalura-api.vercel.app/api/content/faq',
+  ).then(async (res) => {
+    const response = await res.json();
+    return response.data;
+  });
+
+  // Falar sobre tamanho da página aqui e tomar cuidado com recursos extras que vão pra página
+  return {
+    props: {
+      faqCategories,
+    },
+  };
+}
+
+FAQPage.propTypes = {
+  setTheme: PropTypes.func.isRequired,
+  theme: PropTypes.shape({}).isRequired,
+  faqCategories: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      slug: PropTypes.string,
+      questions: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          slug: PropTypes.string,
+          description: PropTypes.string,
+        }),
+      ),
+    }),
+  ).isRequired,
+};

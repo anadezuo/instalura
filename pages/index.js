@@ -27,7 +27,7 @@ export default function Home({ theme, setTheme }) {
           <FormCadastro
             propsModal={propsModal}
             theme={theme}
-            setModal={setModal}
+            onCloseModal={() => setModal(false)}
           />
         )}
       </Modal>
