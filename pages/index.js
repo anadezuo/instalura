@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Box from '../src/components/foundation/layout/Box';
-import Menu from '../src/components/commons/Menu';
+import React from 'react';
 import Article from '../src/components/commons/Article';
 import Grid from '../src/components/foundation/layout/Grid';
-import Footer from '../src/components/commons/Footer';
-import Modal from '../src/components/commons/Modal';
-import FormCadastro from '../src/components/patterns/FormCadastro';
+import WebsiteWrapper from '../src/components/wrappers/WebsiteWrapper';
 
-export default function Home({ theme, setTheme }) {
-  const [modal, setModal] = useState(false);
-
+export default function Home() {
   return (
-    <Box
+    /* <Box
       flex="1"
       display="flex"
       flexWrap="wrap"
@@ -21,18 +14,8 @@ export default function Home({ theme, setTheme }) {
       backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
-    >
-      <Modal isOpen={modal} onClose={() => setModal(false)}>
-        {(propsModal) => (
-          <FormCadastro
-            propsModal={propsModal}
-            theme={theme}
-            onCloseModal={() => setModal(false)}
-          />
-        )}
-      </Modal>
-
-      <Menu setTheme={setTheme} onCadastrarClick={() => setModal(true)} />
+    > */
+    <WebsiteWrapper>
 
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
@@ -45,7 +28,7 @@ export default function Home({ theme, setTheme }) {
             flexDirection="column"
             backgroundColor="inherit"
           >
-            <Article onCadastrarClick={() => setModal(true)} />
+            <Article />
           </Grid.Col>
           <Grid.Col value={{ xs: 12, md: 6 }}>
             <img
@@ -56,14 +39,6 @@ export default function Home({ theme, setTheme }) {
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
-      <Footer />
-    </Box>
+    </WebsiteWrapper>
   );
 }
-
-Home.propTypes = {
-  theme: PropTypes.shape({}).isRequired,
-  setTheme: PropTypes.func.isRequired,
-};
-
-Home.defaultProps = {};

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useContext, useState } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Button from '../../commons/Button';
@@ -139,7 +139,9 @@ function FormContent() {
   );
 }
 
-export default function FormCadastro({ theme, propsModal, onCloseModal }) {
+export default function FormCadastro({ propsModal, onCloseModal }) {
+  const themeContext = useContext(ThemeContext);
+
   return (
     <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
       <Grid.Col
@@ -159,7 +161,7 @@ export default function FormCadastro({ theme, propsModal, onCloseModal }) {
             md: '85px',
           }}
           // eslint-disable-next-line react/prop-types
-          backgroundColor={theme.colors.background.main.color}
+          backgroundColor={themeContext.colors.background.main.color}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...propsModal}
         >
@@ -176,7 +178,6 @@ export default function FormCadastro({ theme, propsModal, onCloseModal }) {
 }
 
 FormCadastro.propTypes = {
-  theme: PropTypes.shape({}).isRequired,
   propsModal: PropTypes.shape({}).isRequired,
   onCloseModal: PropTypes.func.isRequired,
 };

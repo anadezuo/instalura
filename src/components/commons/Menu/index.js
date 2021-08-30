@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from '../../../theme/Logo';
 import MenuWrapper from './styles/MenuWrapper';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
-import { ThemeLight, ThemeDark } from '../../../theme';
 import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
+import { useTheme } from '../../../hooks/theme';
 
-export default function Menu({ setTheme, onCadastrarClick }) {
+export default function Menu({ onCadastrarClick }) {
+  const { theme, toggleTheme } = useTheme();
+
   const links = [
     {
       text: 'Home',
@@ -23,12 +25,9 @@ export default function Menu({ setTheme, onCadastrarClick }) {
     },
   ];
 
-  const [isDark, setIsDark] = useState(false);
-  const changeTheme = () => {
-    // eslint-disable-next-line no-unused-expressions
-    isDark ? setTheme(ThemeLight) : setTheme(ThemeDark);
-    setIsDark(!isDark);
-  };
+  function handleToggleTheme() {
+    toggleTheme();
+  }
 
   return (
     <MenuWrapper>
@@ -56,8 +55,8 @@ export default function Menu({ setTheme, onCadastrarClick }) {
         <Button variant="primary.main" onClick={onCadastrarClick}>
           Cadastrar
         </Button>
-        <ButtonTheme onClick={changeTheme}>
-          <SelectionIconTheme isThemeDark={isDark} />
+        <ButtonTheme onClick={handleToggleTheme}>
+          <SelectionIconTheme isThemeDark={theme.isDark} />
         </ButtonTheme>
       </MenuWrapper.RightSide>
     </MenuWrapper>
@@ -65,6 +64,5 @@ export default function Menu({ setTheme, onCadastrarClick }) {
 }
 
 Menu.propTypes = {
-  setTheme: PropTypes.func.isRequired,
   onCadastrarClick: PropTypes.func.isRequired,
 };
