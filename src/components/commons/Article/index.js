@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
-import WebsiteWrapperContext from '../../../contexts/websiteWrapper';
+import WebsitePageWrapperContext from '../../../contexts/WebsitePageWrapper';
 
 // eslint-disable-next-line react/prop-types
 export default function Article() {
-  const websiteWrapperContext = useContext(WebsiteWrapperContext);
+  const websitePageWrapperContext = useContext(WebsitePageWrapperContext);
 
   return (
     <article>
@@ -35,7 +35,7 @@ export default function Article() {
         marginTop={{ xs: '24px', md: '40px' }}
         display="block"
         onClick={() => {
-          websiteWrapperContext.toggleModalCadastro();
+          websitePageWrapperContext.toggleModalCadastro();
         }}
       >
         Cadastrar

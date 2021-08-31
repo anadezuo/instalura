@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { ThemeDark, ThemeLight } from '../theme';
+import GlobalStyle from '../UI/GlobalStyle';
 
 const ThemeContext = createContext({
   toggleTheme: () => {},
@@ -24,10 +25,9 @@ export function ThemeProviderCustomized({ children }) {
   };
 
   return (
-    <ThemeContext.Provider
-      value={{ toggleTheme, theme }}
-    >
+    <ThemeContext.Provider value={{ toggleTheme, theme }}>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         {children}
       </ThemeProvider>
     </ThemeContext.Provider>

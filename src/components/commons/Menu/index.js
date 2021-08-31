@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 import Logo from '../../../theme/Logo';
 import MenuWrapper from './styles/MenuWrapper';
 import Button from '../Button';
@@ -8,7 +9,9 @@ import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
 import { useTheme } from '../../../hooks/theme';
 
 export default function Menu({ onCadastrarClick }) {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
+
+  const themeContext = useContext(ThemeContext);
 
   const links = [
     {
@@ -56,7 +59,7 @@ export default function Menu({ onCadastrarClick }) {
           Cadastrar
         </Button>
         <ButtonTheme onClick={handleToggleTheme}>
-          <SelectionIconTheme isThemeDark={theme.isDark} />
+          <SelectionIconTheme isThemeDark={themeContext.isDark} />
         </ButtonTheme>
       </MenuWrapper.RightSide>
     </MenuWrapper>
