@@ -8,6 +8,7 @@ const fontFamily = "'Rubik', sans-serif";
 
 export const ThemeLight = {
   colors: colorsLight,
+  isDark: false,
   typographyVariants,
   breakpoints,
   borderRadius,
@@ -17,6 +18,7 @@ export const ThemeLight = {
 
 export const ThemeDark = {
   colors: colorsDark,
+  isDark: true,
   typographyVariants,
   breakpoints,
   borderRadius,

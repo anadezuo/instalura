@@ -3,33 +3,10 @@ import PropTypes from 'prop-types';
 import { Text } from '../../foundation/Text';
 import Box from '../../foundation/layout/Box';
 import Grid from '../../foundation/layout/Grid';
-import Menu from '../../commons/Menu';
-import Footer from '../../commons/Footer';
-import Modal from '../../commons/Modal';
-import FormCadastro from '../../patterns/FormCadastro';
 
-export default function FAQScreen({ setTheme, theme, faqCategories }) {
-  const [isModalOpen, setModalState] = React.useState(false);
-
+export default function FAQScreen({ faqCategories }) {
   return (
     <Box display="flex" flexDirection="column" flex="1">
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setModalState(false);
-        }}
-      >
-        {(propsDoModal) => (
-          <FormCadastro
-            propsModal={propsDoModal}
-            theme={theme}
-            onCloseModal={() => setModalState(false)}
-          />
-        )}
-      </Modal>
-
-      <Menu setTheme={setTheme} onCadastrarClick={() => setModalState(true)} />
-
       <Grid.Container style={{ flex: 1 }}>
         <Grid.Row
           marginTop={{ xs: '32px', md: '100px' }}
@@ -80,15 +57,11 @@ export default function FAQScreen({ setTheme, theme, faqCategories }) {
             ))}
         </Grid.Row>
       </Grid.Container>
-
-      <Footer />
     </Box>
   );
 }
 
 FAQScreen.propTypes = {
-  setTheme: PropTypes.func.isRequired,
-  theme: PropTypes.shape({}).isRequired,
   faqCategories: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
