@@ -35,9 +35,5 @@ export function ThemeProviderCustomized({ children }) {
 }
 
 ThemeProviderCustomized.propTypes = {
-  children: PropTypes.node,
-};
-
-ThemeProviderCustomized.defaultProps = {
-  children: null,
+  children: PropTypes.node.isRequired,
 };
