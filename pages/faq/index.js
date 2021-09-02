@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FAQScreen from '../../src/components/screens/FAQScreen';
 
-export default function FAQPage({ setTheme, theme, faqCategories }) {
+export default function FAQPage({ faqCategories }) {
   /* FIXME: essa é a forma de ser realizado com react puro,
   porém não a melhor forma de fazer com next */
   /* const [faqCategories, setFaqCategories] = React.useState([]);
@@ -24,8 +24,6 @@ export default function FAQPage({ setTheme, theme, faqCategories }) {
 
   return (
     <FAQScreen
-      setTheme={setTheme}
-      theme={theme}
       faqCategories={faqCategories}
     />
   );
@@ -48,8 +46,6 @@ export async function getStaticProps() {
 }
 
 FAQPage.propTypes = {
-  setTheme: PropTypes.func.isRequired,
-  theme: PropTypes.shape({}).isRequired,
   faqCategories: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

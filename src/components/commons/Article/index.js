@@ -1,10 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
+import WebsitePageWrapperContext from '../../../contexts/WebsitePageWrapper';
 
 // eslint-disable-next-line react/prop-types
-export default function Article({ onCadastrarClick }) {
+export default function Article() {
+  const websitePageWrapperContext = useContext(WebsitePageWrapperContext);
+
   return (
     <article>
       <Text
@@ -32,14 +34,12 @@ export default function Article({ onCadastrarClick }) {
         margin={{ xs: 'auto', md: 'initial' }}
         marginTop={{ xs: '24px', md: '40px' }}
         display="block"
-        onClick={onCadastrarClick}
+        onClick={() => {
+          websitePageWrapperContext.toggleModalCadastro();
+        }}
       >
         Cadastrar
       </Button>
     </article>
   );
 }
-
-Article.propTypes = {
-  onCadastrarClick: PropTypes.func.isRequired,
-};

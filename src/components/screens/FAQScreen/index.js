@@ -8,7 +8,7 @@ import Footer from '../../commons/Footer';
 import Modal from '../../commons/Modal';
 import FormCadastro from '../../patterns/FormCadastro';
 
-export default function FAQScreen({ setTheme, theme, faqCategories }) {
+export default function FAQScreen({ faqCategories }) {
   const [isModalOpen, setModalState] = React.useState(false);
 
   return (
@@ -22,13 +22,12 @@ export default function FAQScreen({ setTheme, theme, faqCategories }) {
         {(propsDoModal) => (
           <FormCadastro
             propsModal={propsDoModal}
-            theme={theme}
             onCloseModal={() => setModalState(false)}
           />
         )}
       </Modal>
 
-      <Menu setTheme={setTheme} onCadastrarClick={() => setModalState(true)} />
+      <Menu onCadastrarClick={() => setModalState(true)} />
 
       <Grid.Container style={{ flex: 1 }}>
         <Grid.Row
@@ -87,8 +86,6 @@ export default function FAQScreen({ setTheme, theme, faqCategories }) {
 }
 
 FAQScreen.propTypes = {
-  setTheme: PropTypes.func.isRequired,
-  theme: PropTypes.shape({}).isRequired,
   faqCategories: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
