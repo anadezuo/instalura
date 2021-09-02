@@ -1,11 +1,23 @@
 import React from 'react';
+import Box from '../src/components/foundation/layout/Box';
+import websitePageHOC from '../src/components/wrappers/WebsitePageWrapper/hoc';
 
-export default function AboutPage() {
+function AboutPage() {
   return (
-    <div>
-      <h1>
-        Página Sobre
-      </h1>
-    </div>
+    <Box
+      display="flex"
+      flexDirection="column"
+      flex="1"
+      justifyContent="center"
+      alignItems="center"
+    >
+      Página sobre
+    </Box>
   );
 }
+
+export default websitePageHOC(AboutPage, {
+  pageWrapperProps: {
+    seoProps: { headTitle: 'Sobre' },
+  },
+});
