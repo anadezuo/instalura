@@ -1,14 +1,22 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 // HIGH ORDER COMPONENT - Componente de order superior
 import React from 'react';
 import WebsiteGlobalProvider from '../provider';
 import WebsitePageWrapper from '..';
 
-export default function websitePageHOC(PageComponent, { pageWrapperProps }) {
+export default function websitePageHOC(
+  PageComponent,
+  { pageWrapperProps } = { pageWrapperProps: {} },
+) {
   // função que receberá funções como parâmetro, e irá retornar outras funções
   return (props) => (
     <WebsiteGlobalProvider>
-      <WebsitePageWrapper {...pageWrapperProps}>
+      <WebsitePageWrapper
+        {...pageWrapperProps}
+        {...props.pageWrapperProps}
+      >
         <PageComponent {...props} />
       </WebsitePageWrapper>
     </WebsiteGlobalProvider>
