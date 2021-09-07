@@ -14,7 +14,7 @@ export const useTheme = () => useContext(ThemeContext);
 export default ThemeProvider;
 
 export function ThemeProviderCustomized({ children }) {
-  const [theme, setTheme] = useState(ThemeLight);
+  const [theme, setTheme] = useState(ThemeDark);
 
   const toggleTheme = () => {
     if (theme.isDark) {
