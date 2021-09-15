@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const sizes = {
   small: {
@@ -64,3 +65,7 @@ export default function Logo({ size }) {
     </svg>
   );
 }
+
+Logo.propTypes = {
+  size: PropTypes.string.isRequired,
+};
