@@ -1,14 +1,27 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import PropTypes from 'prop-types';
 
-export default function Logo() {
+const sizes = {
+  small: {
+    width: 96,
+    height: 24,
+  },
+  large: {
+    width: 186,
+    height: 46,
+  },
+};
+
+export default function Logo({ size }) {
   const themeContext = useContext(ThemeContext);
   const { color } = themeContext.colors.logo.main;
+  const { width, height } = sizes[size] || sizes.small;
 
   return (
     <svg
-      width="96"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 131 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -52,3 +65,7 @@ export default function Logo() {
     </svg>
   );
 }
+
+Logo.propTypes = {
+  size: PropTypes.string.isRequired,
+};

@@ -29,6 +29,11 @@ const Container = styled.div`
 
   ${propToStyle('marginTop')};
   ${propToStyle('backgroundColor')};
+  ${propToStyle('height')};
+  ${propToStyle('justifyContent')};
+  ${propToStyle('display')};
+  ${propToStyle('flex')};
+  ${propToStyle('alignItems')};
 `;
 
 const Row = styled.div`
@@ -101,6 +106,7 @@ const Col = styled.div`
   ${propToStyle('backgroundColor')};
   ${propToStyle('paddingRight')};
   ${propToStyle('order')}
+  ${propToStyle('height')}
 
 `;
 
