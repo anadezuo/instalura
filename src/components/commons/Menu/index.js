@@ -6,7 +6,7 @@ import MenuWrapper from './styles/MenuWrapper';
 import Button from '../Button';
 import { Text } from '../../foundation/Text';
 import { ButtonTheme, SelectionIconTheme } from '../../../theme/SwitcherTheme';
-import { useTheme } from '../../../hooks/theme';
+import { useTheme } from '../../../hooks/useTheme';
 
 export default function Menu({ onCadastrarClick }) {
   const { toggleTheme } = useTheme();
