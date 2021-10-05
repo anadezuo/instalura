@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { ThemeDark, ThemeLight } from '../theme';
-import GlobalStyle from '../UI/GlobalStyle';
+import { ThemeDark, ThemeLight } from '../../theme';
+import GlobalStyle from '../../UI/GlobalStyle';
 
 const ThemeContext = createContext({
   toggleTheme: () => {},
