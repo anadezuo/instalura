@@ -1,3 +1,5 @@
+import { setCookie } from 'nookies';
+
 async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
     headers: {
@@ -29,7 +31,19 @@ export const loginService = {
         // Salvar o Token
         // Escrever os testes
         console.log(respostaConvertida);
-        return respostaConvertida;
+
+        const { token } = respostaConvertida.data;
+        const DAY_IN_SECONDS = 86400;
+
+        // por ser lado do cliente, o primeiro parametro é null
+        // o segundo é o nome do cookie
+        // o terceiro é o dado que queremos armazenas
+        setCookie(null, 'APP_TOKEN', token,
+          {
+            path: '/',
+            maxAge: DAY_IN_SECONDS * 7,
+          });
+        return { token };
       });
   },
 };
