@@ -35,7 +35,7 @@ export default function Menu({ onCadastrarClick }) {
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
-        <Logo />
+        <Logo size="small" />
       </MenuWrapper.LeftSide>
       <MenuWrapper.Center>
         {links.map((link) => (
