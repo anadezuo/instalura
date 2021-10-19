@@ -1,3 +1,18 @@
+const colorStatus = {
+  error: {
+    main: {
+      color: '#dc3545',
+      contrastText: '#fff',
+    },
+  },
+  success: {
+    main: {
+      color: '#28a745',
+      contrastText: '#fff',
+    },
+  },
+};
+
 export const colorsLight = {
   background: {
     main: {
@@ -47,6 +62,7 @@ export const colorsLight = {
       color: 'rgba(0, 0, 0, 0.1)',
     },
   },
+  ...colorStatus,
 };
 
 export const colorsDark = {
@@ -98,4 +114,5 @@ export const colorsDark = {
       color: 'rgba(255, 255, 255, 0.1)',
     },
   },
+  ...colorStatus,
 };
