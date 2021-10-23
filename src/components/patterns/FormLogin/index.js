@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { useForm } from '../../../hooks/forms/useForm';
 import { loginService } from '../../../services/login/loginService';
+import { TypesSnackbar, SnackbarAlert } from '../../foundation/Snackbar';
+import formListStates from '../../../information/status/formListStates';
 
 const loginSchema = yup.object().shape({
   usuario: yup
@@ -17,7 +20,7 @@ const loginSchema = yup.object().shape({
     .min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
 });
 
-export default function LoginForm() {
+export default function LoginForm({ onSubmit }) {
   const router = useRouter();
 
   const initialValues = {
@@ -25,9 +28,17 @@ export default function LoginForm() {
     senha: '',
   };
 
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [messageSnackbar, setMessageSnackbar] = useState('');
+
+  const [submissionStatus, setSubmissionStatus] = useState(
+    formListStates.DEFAULT,
+  );
+
   const form = useForm({
     initialValues,
     onSubmit: (values) => {
+      form.setIsFormDisabled(true);
       loginService
         .login({
           username: values.usuario,
@@ -35,6 +46,18 @@ export default function LoginForm() {
         })
         .then(() => {
           router.push('/app/profile');
+          setSubmissionStatus(formListStates.DONE);
+        })
+        .catch((err) => {
+          setMessageSnackbar(
+            'Desculpe, mas algo no login não está correto.',
+          );
+          setOpenSnackbar(true);
+          console.error(err);
+          setSubmissionStatus(formListStates.ERROR);
+        })
+        .finally(() => {
+          form.setIsFormDisabled(false);
         });
     },
     async validateSchema(values) {
@@ -45,7 +68,7 @@ export default function LoginForm() {
   });
 
   return (
-    <form id="formCadastro" onSubmit={form.handleSubmit}>
+    <form id="formCadastro" onSubmit={onSubmit || form.handleSubmit}>
       <TextField
         placeholder="Usuário"
         name="usuario"
@@ -78,9 +101,25 @@ export default function LoginForm() {
       >
         Entrar
       </Button>
+      {submissionStatus === formListStates.ERROR && (
+      <SnackbarAlert
+        type={TypesSnackbar.ERROR}
+        message={messageSnackbar}
+        openSnackbar={openSnackbar}
+        setOpenSnackbar={setOpenSnackbar}
+      />
+      )}
       {/* <pre>
         {JSON.stringify(form.touched, null, 4)}
       </pre> */}
     </form>
   );
 }
+
+LoginForm.defaultProps = {
+  onSubmit: undefined,
+};
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
