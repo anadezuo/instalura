@@ -25,7 +25,7 @@ exports[`<TextField /> renders component 1`] = `
 />
 `;
 
-exports[`<TextField /> when field is invalid displays the respective error message 1`] = `
+exports[`<TextField /> when field is invalid displays the respective invalid field error message 1`] = `
 .c0 {
   font-size: 16px;
   font-weight: 400;
@@ -49,9 +49,9 @@ exports[`<TextField /> when field is invalid displays the respective error messa
 <input
   class="c0 c1"
   href=""
-  name="email"
-  placeholder="Email"
+  name="senha"
+  placeholder="Senha"
   type="text"
-  value="ana@gmail.com"
+  value="aaaaaa"
 />
 `;

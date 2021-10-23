@@ -2,10 +2,7 @@ import React from 'react';
 import user from '@testing-library/user-event';
 import FormLogin from './index';
 import {
-  render,
-  act,
-  screen,
-  waitFor,
+  render, act, screen, waitFor,
 } from '../../../infra/test/testUtils';
 
 const onSubmit = jest.fn();
@@ -16,11 +13,7 @@ onSubmit.mockImplementation((event) => {
 describe('<FormLogin />', () => {
   describe('when from fields are valid', () => {
     test('complete the sumission', async () => {
-      await act(async () => render(
-        <FormLogin
-          onSubmit={onSubmit}
-        />,
-      ));
+      await act(async () => render(<FormLogin onSubmit={onSubmit} />));
 
       expect(screen.getByRole('button')).toBeDisabled();
 
@@ -50,7 +43,9 @@ describe('<FormLogin />', () => {
 
       await waitFor(() => screen.getByRole('alert'));
 
-      expect(screen.getByRole('alert')).toHaveTextContent('Preencha ao menos 3 caracteres');
+      expect(screen.getByRole('alert')).toHaveTextContent(
+        'Preencha ao menos 3 caracteres',
+      );
     });
   });
 });

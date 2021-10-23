@@ -43,22 +43,22 @@ describe('<TextField />', () => {
   });
 
   describe('when field is invalid', () => {
-    test('displays the respective error message', () => {
+    test('displays the respective invalid field error message', () => {
       render(
         <TextField
-          placeholder="Email"
-          value="ana@gmail.com"
+          placeholder="Senha"
+          value="aaaaaa"
           onChange={() => {}}
-          name="email"
+          name="senha"
           isTouched
-          error="O campo email é obrigatório"
+          error="Sua senha precisa ter ao menos 8 caracteres"
         />
         ,
       );
 
-      const inputEmail = screen.getByPlaceholderText(/email/i);
-      expect(inputEmail).toHaveValue('ana@gmail.com');
-      expect(screen.getByRole('alert')).toHaveTextContent('O campo email é obrigatório');
+      const inputEmail = screen.getByPlaceholderText(/senha/i);
+      expect(inputEmail).toHaveValue('aaaaaa');
+      expect(screen.getByRole('alert')).toHaveTextContent('Sua senha precisa ter ao menos 8 caracteres');
       expect(inputEmail).toMatchSnapshot();
     });
   });
