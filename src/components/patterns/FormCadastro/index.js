@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
@@ -34,15 +34,18 @@ function FormContent() {
   );
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  function handleChange(event) {
-    const fieldName = event.target.getAttribute('name');
-    setInfoUser({
-      ...infoUser,
-      [fieldName]: event.target.value,
-    });
-  }
+  const handleChange = useCallback(
+    (event) => {
+      const { name, value } = event.target;
+      setInfoUser((state) => ({
+        ...state,
+        [name]: value,
+      }));
+    },
+    [infoUser],
+  );
 
-  function handleCadastro(event) {
+  const handleCadastro = useCallback((event) => {
     event.preventDefault();
     setIsFormSubmitted(true);
     setOpenSnackbar(true);
@@ -73,7 +76,7 @@ function FormContent() {
         setSubmissionStatus(formStates.ERROR);
         console.error(error);
       });
-  }
+  });
 
   const isActiveButtonCadastro = infoUser.usuario.length === 0 || infoUser.nome.length === 0;
 
