@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import Logo from '../../../theme/Logo';
@@ -28,9 +28,9 @@ export default function Menu({ onCadastrarClick }) {
     },
   ];
 
-  function handleToggleTheme() {
+  const handleToggleTheme = useCallback(() => {
     toggleTheme();
-  }
+  });
 
   return (
     <MenuWrapper>
