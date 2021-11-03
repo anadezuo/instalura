@@ -6,7 +6,7 @@ describe('/pages/app/login/', () => {
   describe('quando preencher e dar submit non form de login', () => {
     it('quero que seja redirecionado para a página inicial', () => {
       cy.intercept(
-        'https://instalura-api-git-master-omariosouto.vercel.app/api/login',
+        'https://instalura-api-git-master.omariosouto.vercel.app/api/login',
       ).as('userLogin');
 
       const loginScreen = new LoginScreenPageObject(cy);
