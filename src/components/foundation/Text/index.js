@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import Link from '../../commons/Link';
+import WebsitePageWrapperContext from '../../../contexts/WebsitePageWrapper';
 
 export const TextStyleVariantsMap = {
   paragraph1: css`
@@ -57,8 +58,14 @@ const TextBase = styled.span`
 `;
 
 export function Text({
-  tag, variant, children, href, ...props
+  tag, variant, children, href, cmsKey, ...props
 }) {
+  const websitePageContext = React.useContext(WebsitePageWrapperContext);
+
+  const componentContent = cmsKey
+    ? websitePageContext.getCMSContent(cmsKey)
+    : children;
+
   return (
     <TextBase
       as={href ? Link : tag}
@@ -67,7 +74,7 @@ export function Text({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
-      {children}
+      {componentContent}
     </TextBase>
   );
 }
@@ -77,6 +84,7 @@ Text.propTypes = {
   variant: PropTypes.string,
   children: PropTypes.node,
   href: PropTypes.string,
+  cmsKey: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -84,4 +92,5 @@ Text.defaultProps = {
   variant: 'paragraph1',
   children: null,
   href: '',
+  cmsKey: undefined,
 };
