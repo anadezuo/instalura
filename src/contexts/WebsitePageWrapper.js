@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const WebsitePageWrapperContext = React.createContext({
+const WebsitePageWrapperContext = React.createContext({
   toggleModalCadastro: () => {},
   getCMSContent: (cmsKey) => cmsKey,
 });
+
+export default WebsitePageWrapperContext;

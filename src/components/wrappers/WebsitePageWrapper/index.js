@@ -10,7 +10,6 @@ import FormCadastro from '../../patterns/FormCadastro';
 import Modal from '../../commons/Modal';
 import SEO from '../../Head/SEO';
 
-export { WebsitePageWrapperContext } from '../../../contexts/WebsitePageWrapper';
 export default function WebsitePageWrapper({
   children,
   seoProps,
